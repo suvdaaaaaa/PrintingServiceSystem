@@ -44,9 +44,9 @@ const Login2 = () => {
               elevation={9}
               sx={{ p: 4, zIndex: 1, width: "100%", maxWidth: "500px" }}
             >
-              {/* <Box display="flex" alignItems="center" justifyContent="center">
-                End logo orj irnejuu
-              </Box> */}
+              <Box display="flex" alignItems="center" justifyContent="center">
+                <Logo />
+              </Box>
               <AuthLogin
                 subtext={
                   <Typography
@@ -55,7 +55,7 @@ const Login2 = () => {
                     color="textSecondary"
                     mb={1}
                   >
-                    Нэвтрэх
+                    Өмнө бүртгүүлсэн хаягаараа нэвтрэх
                   </Typography>
                 }
                 subtitle={

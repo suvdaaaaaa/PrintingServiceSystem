@@ -33,4 +33,5 @@ const createUser = async (data: any) => {
   return res;
 };
 
-export { getUser, createUser, getUsers };
+
+export { getUser, createUser, getUsers  };

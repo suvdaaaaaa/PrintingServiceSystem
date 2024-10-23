@@ -1,8 +1,8 @@
-import { getUsers } from "@/services/UserService";
+import { getTemplates } from "@/services/TemplateService";
 import { Box } from "@mui/material";
 
 import { Suspense } from "react";
-import UserList from "../components/user/UserList";
+import templateList from "../components/template/templates";
 type searchParamsProps = {
   query?: string;
   page?: string;
@@ -10,25 +10,25 @@ type searchParamsProps = {
   org?: string;
 };
 
-const UserPage = async ({
+const TemplatePage = async ({
   searchParams,
 }: {
   searchParams?: searchParamsProps;
 }) => {
-  const userData = await getUsers();
+  const tempData = await getTemplates();
 
-  console.log({userData});
+  console.log({tempData});
   
 
   return (
     <div className="container m-auto p-6 indicator_name lg:px-8 indicator_name flex min-h-screen flex-col items-start justify-start ">
       <Box>
         <Suspense fallback={<div>Loading...</div>}>
-          <UserList users={userData} />
+          <templateList temp={tempData} />
         </Suspense>
       </Box>
     </div>
   );
 };
 
-export default UserPage;
+export default templateList;

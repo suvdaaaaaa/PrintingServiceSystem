@@ -13,7 +13,7 @@ export const getUsersModel = async () => {
 
 export const getUserByIdModel = async (id: number) => {
   try {
-    const orgList = await prisma.user.findUnique({
+    const user = await prisma.user.findUnique({
       select: {
         user_id: true,
         fname: true,
@@ -23,7 +23,7 @@ export const getUserByIdModel = async (id: number) => {
       },
     });
 
-    return orgList;
+    return user;
   } catch (error) {
     console.error("Error in getUserByIdModel:", error);
     throw new Error("Failed to fetch user one");
@@ -37,7 +37,7 @@ export const createUserModel = async (data: IUser) => {
   const updated_date = now.toISOString();
 
   try {
-    const organization = await prisma.user.create({
+    const userr = await prisma.user.create({
       data: {
         user_id,
         fname,
@@ -51,7 +51,7 @@ export const createUserModel = async (data: IUser) => {
         //updated_date,
       },
     });
-    return organization;
+    return userr;
   } catch (error) {
     console.error("Error in createUserModel:", error);
     throw new Error("Failed to fetch create user");

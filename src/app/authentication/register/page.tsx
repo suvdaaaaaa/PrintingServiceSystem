@@ -2,8 +2,8 @@
 import { Grid, Box, Card, Typography, Stack } from "@mui/material";
 import Link from "next/link";
 import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
-import Logo from "@/app/(DashboardLayout)/layout/shared/logo/Logo";
 import AuthRegister from "../auth/AuthRegister";
+import Logo from "@/app/(DashboardLayout)/layout/shared/logo/Logo";
 
 const Register2 = () => (
   <PageContainer title="Register" description="this is Register page">
@@ -53,7 +53,7 @@ const Register2 = () => (
                   color="textSecondary"
                   mb={1}
                 >
-                  Your Social Campaigns
+                  Та мэдээллээ үнэн зөв оруулна уу!
                 </Typography>
               }
               subtitle={
@@ -68,7 +68,7 @@ const Register2 = () => (
                     variant="h6"
                     fontWeight="400"
                   >
-                    Already have an Account?
+                    Бүртгэлтэй бол
                   </Typography>
                   <Typography
                     component={Link}
@@ -79,7 +79,7 @@ const Register2 = () => (
                       color: "primary.main",
                     }}
                   >
-                    Sign In
+                    Нэвтрэх
                   </Typography>
                 </Stack>
               }

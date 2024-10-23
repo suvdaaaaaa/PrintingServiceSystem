@@ -67,19 +67,13 @@ const Profile = () => {
           <ListItemIcon>
             <IconUser width={20} />
           </ListItemIcon>
-          <ListItemText>My Profile</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <IconMail width={20} />
-          </ListItemIcon>
-          <ListItemText>My Account</ListItemText>
+          <ListItemText>Хувийн мэдээлэл</ListItemText>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
             <IconListCheck width={20} />
           </ListItemIcon>
-          <ListItemText>My Tasks</ListItemText>
+          <ListItemText>Түүх</ListItemText>
         </MenuItem>
         <Box mt={1} py={1} px={2}>
           <Button
@@ -89,7 +83,7 @@ const Profile = () => {
             component={Link}
             fullWidth
           >
-            Logout
+            Гарах
           </Button>
         </Box>
       </Menu>
