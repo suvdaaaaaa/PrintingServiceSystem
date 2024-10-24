@@ -1,8 +1,8 @@
+import TemplateList from "../components/template/templates";
 import { getTemplates } from "@/services/TemplateService";
 import { Box } from "@mui/material";
 
 import { Suspense } from "react";
-import templateList from "../components/template/templates";
 type searchParamsProps = {
   query?: string;
   page?: string;
@@ -17,18 +17,18 @@ const TemplatePage = async ({
 }) => {
   const tempData = await getTemplates();
 
-  console.log({tempData});
+//   console.log({tempData});
   
 
   return (
     <div className="container m-auto p-6 indicator_name lg:px-8 indicator_name flex min-h-screen flex-col items-start justify-start ">
       <Box>
         <Suspense fallback={<div>Loading...</div>}>
-          <templateList temp={tempData} />
+          <TemplateList temp={tempData} />
         </Suspense>
       </Box>
     </div>
   );
 };
 
-export default templateList;
+export default TemplatePage;

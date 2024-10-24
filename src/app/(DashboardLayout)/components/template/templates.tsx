@@ -10,7 +10,7 @@ import { Stack } from "@mui/system";
 import BlankCard from "@/app/(DashboardLayout)/components/shared/BlankCard";
 import { ITemplate } from "@/interfaces/ITemplate";
 
-const templateList = ({ temp }: { temp: ITemplate[] }) => {
+const TemplateList = ({ temp }: { temp: ITemplate[] }) => {
   return (
     <Grid container spacing={3}>
        {temp && temp.length > 0 ? (
@@ -51,4 +51,4 @@ const templateList = ({ temp }: { temp: ITemplate[] }) => {
   );
 };
 
-export default templateList;
+export default TemplateList;

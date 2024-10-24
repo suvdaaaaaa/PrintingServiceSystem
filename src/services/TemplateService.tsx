@@ -1,5 +1,5 @@
 const getTemplates = async () => {
-  const res = await fetch(`${process.env.BASE_URL}/api/template`, {
+  const res = await fetch(`${process.env.BASE_URL}/api/templates`, {
     cache: "no-cache",
   });
 
@@ -11,7 +11,7 @@ const getTemplates = async () => {
 };
 
 const getTemplate = async (id: any) => {
-  const res = await fetch(`${process.env.BASE_URL}/api/template/${id}`, {
+  const res = await fetch(`${process.env.BASE_URL}/api/templates/${id}`, {
     cache: "no-cache",
   });
 
@@ -22,7 +22,7 @@ const getTemplate = async (id: any) => {
   return res.json();
 };
 const createTemplate = async (data: any) => {
-  const res = await fetch(`${process.env.BASE_URL}/api/template/create`, {
+  const res = await fetch(`${process.env.BASE_URL}/api/templates/create`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
