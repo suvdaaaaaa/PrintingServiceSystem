@@ -17,7 +17,7 @@ const UserPage = async ({
 }) => {
   const userData = await getUsers();
 
-  console.log({userData});
+  // console.log({userData});
   
 
   return (

@@ -2,7 +2,7 @@
 import React from 'react'
 
 const UserForm = () => {
-    console.log({UserForm:"test"});
+    // console.log({UserForm:"test"});
     
   return (
     <div>UserForm</div>
