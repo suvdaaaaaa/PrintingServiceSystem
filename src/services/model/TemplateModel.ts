@@ -17,6 +17,7 @@ export const getTemplateByIdModel = async (id: number) => {
       select: {
         template_id: true,
         template_name: true,
+        image_url: true
       },
       where: {
         template_id: id,
@@ -30,7 +31,7 @@ export const getTemplateByIdModel = async (id: number) => {
   }
 };
 export const createTemplateModel = async (data: ITemplate) => {
-  const {template_id, template_name, price, design_object } = data;
+  const {template_id, template_name, price, image_url, design_object } = data;
 
   const now = new Date();
   const created_date = now.toISOString();
@@ -42,6 +43,7 @@ export const createTemplateModel = async (data: ITemplate) => {
         template_id, 
         template_name,
         price,
+        image_url,
         design_object: JSON.parse(JSON.stringify(design_object)),
         // created_date,
         // updated_date

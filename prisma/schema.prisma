@@ -115,6 +115,7 @@ model Templates {
   template_id    Int      @id @default(autoincrement())
   template_name  String   @unique @db.VarChar(50)
   price          Float
+  image_url      String?   @db.Text
   design_object  Json
   createdDate    DateTime @default(now())
   updatedDate    DateTime @updatedAt

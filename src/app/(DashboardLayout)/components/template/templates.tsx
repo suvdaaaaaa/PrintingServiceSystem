@@ -19,7 +19,7 @@ const TemplateList = ({ temp }: { temp: ITemplate[] }) => {
             <BlankCard>
               <Typography component={Link} href="/">
                 <Avatar
-                  // src={product.photo}
+                  // src={product.image_url}
                   alt={product.template_name}
                   variant="square"
                   sx={{
