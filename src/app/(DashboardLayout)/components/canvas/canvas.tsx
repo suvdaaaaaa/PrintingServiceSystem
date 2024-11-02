@@ -165,7 +165,7 @@ const BusinessCardEditor = () => {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const [context, setContext] = useState<CanvasRenderingContext2D | null>(null);
 
-    const [text, setText] = useState<string>("Your Name");
+    const [text, setText] = useState<string>("");
     const [fontSize, setFontSize] = useState<number>(24);
     const [fontColor, setFontColor] = useState<string>("#4A5568");
     const [fontFamily, setFontFamily] = useState<string>("Arial");
@@ -189,6 +189,7 @@ const BusinessCardEditor = () => {
 
     useEffect(() => {
         drawCanvas();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [text, fontSize, fontColor, fontFamily, bold, italic, underline, alignment, uploadedImage, textPosition]);
 
     const drawCanvas = () => {
@@ -244,23 +245,23 @@ const BusinessCardEditor = () => {
     };
 
     return (
-        <div className="flex gap-6 p-6 bg-gray-50 min-h-screen">
+        <div className="flex gap-6 p-6">
             <Card className="w-80">
                 <CardHeader>
-                    <CardTitle>Design Your Card</CardTitle>
+                    <CardTitle> </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                     <div className="space-y-2">
-                        <label className="text-sm font-medium">Text</label>
+                        <label className="text-sm font-medium">Текст</label>
                         <Input
                             value={text}
                             onChange={handleImageUpload}
-                            placeholder="Enter text"
+                            placeholder="Текст оруулах"
                         />
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium">Font Family</label>
+                        <label className="text-sm font-medium">Фонт</label>
                         <Select value={fontFamily} onChange={(e) => setFontFamily(e.target.value)}>
                             <option value="Arial">Arial</option>
                             <option value="Times New Roman">Times New Roman</option>
@@ -270,7 +271,7 @@ const BusinessCardEditor = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium">Font Size: {fontSize}px</label>
+                        <label className="text-sm font-medium">Фонтын хэмжээ: {fontSize}px</label>
                         <Slider
                             value={fontSize}
                             onChange={(e) => setFontSize(parseInt(e.target.value))}
@@ -281,7 +282,7 @@ const BusinessCardEditor = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium">Font Color</label>
+                        <label className="text-sm font-medium">Фонтын өнгө</label>
                         <Input
                             type="color"
                             value={fontColor}
@@ -291,7 +292,7 @@ const BusinessCardEditor = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium">Text Style</label>
+                        <label className="text-sm font-medium">Текстийн загвар</label>
                         <div className="flex gap-2">
                             <Button
                                 variant={bold ? "default" : "outline"}
@@ -318,7 +319,7 @@ const BusinessCardEditor = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium">Alignment</label>
+                        <label className="text-sm font-medium">Байрлуулалт</label>
                         <div className="flex gap-2">
                             <Button
                                 variant={alignment === "left" ? "default" : "outline"}
@@ -345,12 +346,12 @@ const BusinessCardEditor = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium">Background Image</label>
+                        <label className="text-sm font-medium">Зураг</label>
                         <div className="flex items-center justify-center w-full">
                             <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
                                 <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                     <Icons.Upload />
-                                    <p className="text-sm text-gray-500">Click to upload</p>
+                                    <p className="text-sm text-gray-500">Зураг оруулах</p>
                                 </div>
                                 <input
                                     type="file"
@@ -366,7 +367,7 @@ const BusinessCardEditor = () => {
 
             <Card className="flex-1">
                 <CardHeader>
-                    <CardTitle>Preview</CardTitle>
+                    <CardTitle>Таны нэрийн хуудас</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <canvas
