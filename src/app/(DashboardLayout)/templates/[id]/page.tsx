@@ -1,14 +1,11 @@
 import React from 'react'
-import { Box, Typography } from '@mui/material'
+import DashboardCard from '../../components/shared/DashboardCard';
+import BusinessCardEditor from '../../components/canvas/canvas';
 
 const TemplateDetail = () => {
-  return (
-    <div>
-        <Box>
-            <Typography>Нэрийн хуудас засварлах</Typography>
-        </Box>
-        </div>
-  )
+ return (
+    <BusinessCardEditor/>
+  );
 }
 
-export default TemplateDetail
+export default TemplateDetail;

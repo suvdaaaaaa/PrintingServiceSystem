@@ -18,22 +18,22 @@ const TemplateList = ({ temp }: { temp: ITemplate[] }) => {
     <DashboardCard title="Нэрийн хуудасны загварууд">
       <Grid container spacing={3}>
         {temp && temp.length > 0 ? (
-          temp.map((product) => (
-            <Grid item xs={12} md={3} lg={4} key={product.template_id}>
+          temp.map((template) => (
+            <Grid item xs={12} md={3} lg={4} key={template.template_id}>
               <BlankCard>
-                <Avatar
-                  src={product.image_url}
-                  alt={product.template_name}
-                  variant="square"
-                  sx={{
-                    height: 230,
-                    width: '100%',
-                  }}
-                />
-                <CardContent sx={{ p: 3, pt: 2 }}>
-                <Link href={`/templates/${product.template_id}`}> 
-                  <Typography variant="h6">{product.template_name}</Typography>
+                <Link href={`/templates/${template.template_id}`}> 
+                  <Avatar
+                    src={template.image_url}
+                    alt={template.template_name}
+                    variant="square"
+                    sx={{
+                      height: 230,
+                      width: '100%',
+                    }}
+                  />
                 </Link>
+                <CardContent sx={{ p: 3, pt: 2 }}>
+                  <Typography variant="h6">{template.template_name}</Typography>
                   <Stack
                     direction="row"
                     alignItems="center"
@@ -41,7 +41,7 @@ const TemplateList = ({ temp }: { temp: ITemplate[] }) => {
                     mt={1}
                   >
                     <Stack direction="row" alignItems="center">
-                      <Typography variant="h6">${product.price}</Typography>
+                      <Typography variant="h6">{template.price}</Typography>
                     </Stack>
                   </Stack>
                 </CardContent>
