@@ -5,8 +5,26 @@ import { Grid, Box, Card, Stack, Typography } from "@mui/material";
 import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
 import Logo from "@/app/(DashboardLayout)/layout/shared/logo/Logo";
 import AuthLogin from "../auth/AuthLogin";
+import { useState } from "react";
+import { loginUser } from "@/services/UserService";
 
 const Login2 = () => {
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleLogin = async (data: { email: string; password: string; rememberMe: boolean }) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const result = await loginUser(data.email, data.password);
+      console.log("Login successful", result);
+    } catch (error) {
+      setError("Нэвтрэхэд алдаа гарлаа. Та дахин оролдоно уу.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <PageContainer title="Login" description="this is Login page">
       <Box
@@ -24,12 +42,7 @@ const Login2 = () => {
           },
         }}
       >
-        <Grid
-          container
-          spacing={0}
-          justifyContent="center"
-          sx={{ height: "100vh" }}
-        >
+        <Grid container spacing={0} justifyContent="center" sx={{ height: "100vh" }}>
           <Grid
             item
             xs={12}
@@ -40,52 +53,38 @@ const Login2 = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <Card
-              elevation={9}
-              sx={{ p: 4, zIndex: 1, width: "100%", maxWidth: "500px" }}
-            >
+            <Card elevation={9} sx={{ p: 4, zIndex: 1, width: "100%", maxWidth: "500px" }}>
               <Box display="flex" alignItems="center" justifyContent="center">
                 <Logo />
               </Box>
               <AuthLogin
                 subtext={
-                  <Typography
-                    variant="subtitle1"
-                    textAlign="center"
-                    color="textSecondary"
-                    mb={1}
-                  >
+                  <Typography variant="subtitle1" textAlign="center" color="textSecondary" mb={1}>
                     Өмнө бүртгүүлсэн хаягаараа нэвтрэх
                   </Typography>
                 }
                 subtitle={
-                  <Stack
-                    direction="row"
-                    spacing={1}
-                    justifyContent="center"
-                    mt={3}
-                  >
-                    <Typography
-                      color="textSecondary"
-                      variant="h6"
-                      fontWeight="500"
-                    >
+                  <Stack direction="row" spacing={1} justifyContent="center" mt={3}>
+                    <Typography color="textSecondary" variant="h6" fontWeight="500">
                       Шинээр хэрэглэгч болох?
                     </Typography>
                     <Typography
                       component={Link}
                       href="/authentication/register"
                       fontWeight="500"
-                      sx={{
-                        textDecoration: "none",
-                        color: "primary.main",
-                      }}
+                      sx={{ textDecoration: "none", color: "primary.main" }}
                     >
                       Бүртгүүлэх
                     </Typography>
                   </Stack>
                 }
+                onSubmit={handleLogin}
               />
+              {error && (
+                <Typography variant="body2" color="error" textAlign="center" mt={2}>
+                  {error}
+                </Typography>
+              )}
             </Card>
           </Grid>
         </Grid>
@@ -93,4 +92,5 @@ const Login2 = () => {
     </PageContainer>
   );
 };
+
 export default Login2;

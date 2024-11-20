@@ -21,8 +21,9 @@ const getUser = async (id: any) => {
 
   return res.json();
 };
+
 const createUser = async (data: any) => {
-  const res = await fetch(`${process.env.BASE_URL}/api/user/create`, {
+  const res = await fetch(`http://localhost:3000/api/authentication/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -33,5 +34,21 @@ const createUser = async (data: any) => {
   return res;
 };
 
+const loginUser = async (email: string, password: string) => {
+  try {
+    const res = await fetch(`http://localhost:3000/api/authentication/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    
+    return res;
+  } catch (error) {
+    throw new Error('Login request failed');
+  }
+};
 
-export { getUser, createUser, getUsers  };
+
+export { getUser, createUser, getUsers, loginUser  };

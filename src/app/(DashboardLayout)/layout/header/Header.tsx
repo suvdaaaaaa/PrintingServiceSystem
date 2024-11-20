@@ -15,26 +15,29 @@ const Header = ({toggleMobileSidebar}: ItemType) => {
   // const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
   // const lgDown = useMediaQuery((theme) => theme.breakpoints.down('lg'));
 
-
-  const AppBarStyled = styled(AppBar)(({ theme }) => ({
-    boxShadow: 'none',
-    background: theme.palette.background.paper,
-    justifyContent: 'center',
-    backdropFilter: 'blur(4px)',
-    [theme.breakpoints.up('lg')]: {
-      minHeight: '70px',
-    },
-  }));
   const ToolbarStyled = styled(Toolbar)(({ theme }) => ({
     width: '100%',
+    justifyContent: 'space-between',
     color: theme.palette.text.secondary,
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(5, 10),
+    },
+  }));
+
+  const LogoWrapper = styled(Box)(({ theme }) => ({
+    // paddingLeft: theme.spacing(0),
+    display: 'flex',
+    alignItems: 'center',
+    [theme.breakpoints.down('lg')]: {
+      paddingLeft: theme.spacing(2),
+    },
   }));
 
   return (
-    <AppBarStyled position="sticky" color="default">
       <ToolbarStyled>
-        <Logo />
-        <Box flexGrow={1} />
+        <LogoWrapper>
+          <Logo />
+        </LogoWrapper>
         <Stack spacing={1} direction="row" alignItems="center">
           <Button variant="contained" component={Link} href="/authentication/login"   disableElevation color="primary" >
             Нэвтрэх
@@ -42,7 +45,6 @@ const Header = ({toggleMobileSidebar}: ItemType) => {
           <Profile />
         </Stack>
       </ToolbarStyled>
-    </AppBarStyled>
   );
 };
 
